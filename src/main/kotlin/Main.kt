@@ -1,6 +1,10 @@
+//OPERATORS
+//NULLABILITY
+
 fun main(args: Array<String>) {
-    operators()
+
 }
+
 
 fun operators(){
     val fish = 2
