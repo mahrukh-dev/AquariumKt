@@ -5,10 +5,49 @@ import java.util.Random
 //AMS
 
 fun main(){
-    println( getFortuneCookie())
-    feedTheFish()
+    //println( getFortuneCookie())
+    //feedTheFish()
+    //println(whatShouldIDoToday(readLine()!!))
+    filterExample()
 }
 
+var rollDice = {Random().nextInt(12)+1}
+var rollDiceSides = {side: Int ->Random().nextInt(side)+1}
+var rollDiceSides2 = {side: Int ->
+    if(side==0) 0
+    else Random().nextInt(side)+1
+}
+var rollDiceSides3: (Int)-> Int = {side ->
+    if(side==0) 0
+    else Random().nextInt(side)+1
+}
+
+
+
+fun filterExample(){
+    val decor = listOf("rock", "plastic", "pet", "alligator")
+    val filterOne = decor.filter { it.startsWith("p") }
+    println(filterOne)
+
+    //apply filter lazily
+    val filterTwo = decor.asSequence().filter { it.startsWith("p") }
+    println(filterTwo.toList())
+
+    var spices = listOf("curry", "pepper", "cayenne", "ginger", "red curry", "green curry", "red pepper" )
+    var spicesOne = spices.filter { it.contains("curry") }.sortedBy { it.length }
+    var spicesTwo =    spices.filter { it.startsWith("c") }.filter { it.endsWith("e") }
+    var spicesThree= spices.take(3).filter { it.startsWith("c") }
+}
+
+fun whatShouldIDoToday(mood:String, weather: String = "Sunny", temp: Int = 24): String {
+
+    return when {
+        mood =="happy" && weather== "Sunny" -> "go for a walk"
+        mood == "sad" && weather == "rainy" && temp == 0 -> "stay in bed"
+        temp > 35 -> "go swimming"
+        else -> "stay home and read"
+    }
+}
 fun dayOfWeek(){
     println("What day is it today?")
     var day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)
