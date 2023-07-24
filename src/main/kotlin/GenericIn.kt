@@ -9,3 +9,4 @@ fun main() {
     consumer.consume(42) // OK, since Consumer is contravariant
     consumer.consume(3.14) // OK, since Consumer is contravariant
 }
+
