@@ -1,5 +1,4 @@
 package aquarium.generics
-
 open class Vehicle
 class Car : Vehicle()
 class Motorcycle : Vehicle()
