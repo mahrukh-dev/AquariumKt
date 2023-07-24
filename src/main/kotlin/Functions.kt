@@ -25,19 +25,26 @@ var rollDiceSides3: (Int)-> Int = {side ->
 
 
 fun filterExample(){
-    val decor = listOf("rock", "plastic", "pet", "alligator")
+    var decor = mutableListOf("rock", "plastic", "pet", "alligator")
     val filterOne = decor.filter { it.startsWith("p") }
     println(filterOne)
 
     //apply filter lazily
     val filterTwo = decor.asSequence().filter { it.startsWith("p") }
-    println(filterTwo.toList())
 
+   println(filterTwo.toList())
+
+    val filterThree = decor.asSequence();
+    decor.add("abc")
+    println(filterThree.toList())
+/*
     var spices = listOf("curry", "pepper", "cayenne", "ginger", "red curry", "green curry", "red pepper" )
     var spicesOne = spices.filter { it.contains("curry") }.sortedBy { it.length }
     var spicesTwo =    spices.filter { it.startsWith("c") }.filter { it.endsWith("e") }
     var spicesThree= spices.take(3).filter { it.startsWith("c") }
+*/
 }
+
 
 fun whatShouldIDoToday(mood:String, weather: String = "Sunny", temp: Int = 24): String {
 
